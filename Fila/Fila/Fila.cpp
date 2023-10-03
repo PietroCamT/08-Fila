@@ -1,3 +1,4 @@
+// Pietro Fortunato de Camargo Corrêa
 #include <iostream>
 using namespace std;
 
@@ -88,13 +89,30 @@ void insere()
 	cin >> novo->valor;
 	novo->prox = NULL;
 
+	if (inicio == NULL) {
+		inicio = novo;
+		novo->prox = NULL;
+		cout << "Numero adicionado" << endl;
+	}
+	else {
+		novo->prox = fim;
+		fim = novo;
+		cout << "Numero adicionado com sucesso" << endl;
 
+	}
 }
 
 void remove()
 {
+	NO* aux = inicio;
 
-
-
+	if (inicio == NULL) {
+		cout << "Fila vazia" << endl;
+	}
+	else {
+		fim->prox = inicio;
+		cout << "Elemento deletado " << aux->valor << endl;
+		free(aux);
+	}
 }
 
